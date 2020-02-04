@@ -53,9 +53,9 @@ ul img {
 img {
   max-width: 100%;
 }
-section#lecturers ul { 
+section#lecturers ul {
   flex-wrap:wrap;
-  
+
 }
 section#lecturers li {
   width:45%;
