@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eef3eaf6-2a92-4b27-b0fd-e5a6be9573d9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/guido.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/joost.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/laurens.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/maikel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/img/robin.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/js/app.js" afterDir="false" />
     </list>
@@ -22,6 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XIcK35THTjl9AXLtTrYNNEBIUJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -55,7 +62,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580736981720</updated>
-      <workItem from="1580736983017" duration="18690000" />
+      <workItem from="1580736983017" duration="19840000" />
+      <workItem from="1581015514782" duration="6914000" />
     </task>
     <servers />
   </component>
@@ -67,7 +75,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

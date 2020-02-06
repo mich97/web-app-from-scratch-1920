@@ -10,6 +10,9 @@ const renderComics = (comics) => {
 
 }
 
+const searchComic = () => {
+
+}
 
 fetch(url + '/v1/public/comics' + PUBLIC_KEY)
     .then((response) => {
@@ -22,15 +25,33 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
         console.log(res.data.results)
 
         const comics = res.data.results
-        const list = document.createElement('ul')
+        const comicContainer = document.createElement('div')
+        comicContainer.setAttribute('class', 'comic-layout')
 
         comics.forEach( comic => {
 
-            const listItem = document.createElement('li')
-            listItem.innerText = comic.title
-            list.appendChild(listItem)
+            const comicGrid = document.createElement('div')
+            comicGrid.setAttribute('class', 'comic-grid')
+
+            const comicImage = document.createElement('img')
+            const comicImagePath = comic.thumbnail.path + "." + comic.thumbnail.extension
+            comicImage.setAttribute('class', 'comic-thumbnail')
+            comicImage.setAttribute('src', comicImagePath)
+
+            const comicTitle = document.createElement('span')
+            comicTitle.setAttribute('class', 'comic-title')
+            comicTitle.innerText = comic.title
+
+            const comicDescription = document.createElement('span')
+            comicDescription.setAttribute('class', 'comic-description')
+            comicDescription.innerText = comic.description
+
+            comicGrid.appendChild(comicImage)
+            comicGrid.appendChild(comicTitle)
+            comicContainer.appendChild(comicGrid)
+
 
         })
-        renderComics(list)
+        renderComics(comicContainer)
     })
 
