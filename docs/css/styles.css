@@ -1,78 +1,117 @@
 :root {
-  --dark: #212121;
-  --marvel: #f0131e;
-  --light: #e0e0e0;
+    --dark: #212121;
+    --marvel: #f0131e;
+    --light: #e0e0e0;
 }
 
 body {
-  background-color: var(--light);
-  color: var(--dark);
-  font-family: monospace;
-  margin: 0;
+    background-color: var(--light);
+    color: var(--dark);
+    font-family: monospace;
+    margin: 0;
 }
 
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
+
 @media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
+    .container {
+        width: 750px;
+    }
 }
+
 @media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
+    .container {
+        width: 970px;
+    }
 }
+
 @media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
+    .container {
+        width: 1170px;
+    }
 }
 
 .logo {
-  width: 200px;
-  height: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #comic-layout {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  padding-top: 10px;
-  padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.comic-grid {
-  background-color: #ffffff;
-  border: 1px solid var(--dark);
-  border-radius: 5px;
-  padding: 10px;
-  transition: transform .2s;
+.comic-card {
+    background-color: #ffffff;
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform .2s;
+    cursor: pointer;
 }
 
-.comic-grid:hover {
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
-  transform: scale(1.1);
-  border: 2px solid var(--marvel)
+.comic-card:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+    border: 2px solid var(--marvel)
 }
 
 .comic-thumbnail {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .comic-title {
-  display: block;
+    display: block;
 }
 
 .search-field {
-  padding: 10px;
+    padding: 10px;
+}
+
+.scene {
+    border: 1px solid #CCC;
+    margin: 40px 0;
+    perspective: 600px;
+}
+
+.card {
+    width: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    color: white;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    background: red;
+}
+
+.card__face--back {
+    background: blue;
+    transform: rotateY(180deg);
 }

@@ -11,13 +11,13 @@ const renderHTML = (comics) => {
 }
 
 const searchComic = () => {
-    let input, filter, comicGrid, gridItem, comicTitle, i, txtValue
+    let input, filter, comicGrid, gridItem, comicTitle, txtValue
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     comicGrid = document.getElementById("comic-layout");
-    gridItem = comicGrid.getElementsByClassName("comic-grid");
+    gridItem = comicGrid.getElementsByClassName("comic-card");
 
-    for (i = 0; i < gridItem.length; i++) {
+    for (let i = 0; i < gridItem.length; i++) {
         comicTitle = gridItem[i].getElementsByClassName("comic-title")[0];
         txtValue = comicTitle.textContent || comicTitle.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -45,11 +45,14 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
 
         comics.forEach( comic => {
 
-            const comicGrid = document.createElement('div')
-            comicGrid.setAttribute('class', 'comic-grid')
+            const comicCard = document.createElement('div')
+            comicCard.setAttribute('class', 'comic-card')
+
+            const comicAnchor = document.createElement('a')
+            comicAnchor.setAttribute('href', `#${comic.id}`)
 
             const comicImage = document.createElement('img')
-            const comicImagePath = comic.thumbnail.path + "." + comic.thumbnail.extension
+            const comicImagePath = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
             comicImage.setAttribute('class', 'comic-thumbnail')
             comicImage.setAttribute('src', comicImagePath)
 
@@ -57,16 +60,25 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
             comicTitle.setAttribute('class', 'comic-title')
             comicTitle.innerText = comic.title
 
-            const comicDescription = document.createElement('span')
-            comicDescription.setAttribute('class', 'comic-description')
-            comicDescription.innerText = comic.description
+            comicAnchor.appendChild(comicImage)
+            comicAnchor.appendChild(comicTitle)
+            comicCard.appendChild(comicAnchor)
+            comicContainer.appendChild(comicCard)
 
-            comicGrid.appendChild(comicImage)
-            comicGrid.appendChild(comicTitle)
-            comicContainer.appendChild(comicGrid)
+            /*comicCard.appendChild(comicImage)
+            comicCard.appendChild(comicTitle)
+            comicContainer.appendChild(comicCard)*/
+
+            routie(`${comic.id}`, function() {
+                console.log(comic.id)
+            });
 
 
         })
         renderHTML(comicContainer)
     })
 
+const card = document.querySelector('.card')
+card.addEventListener( 'click', function() {
+    card.classList.toggle('is-flipped');
+});
