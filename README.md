@@ -2,30 +2,7 @@
 
 Overview of Marvel Comics. The web-app displays the title of each comic, including a thumbnail. Users can search for comics and click on each comic to show more data. Data is retrieved by using the Marvel API https://developer.marvel.com/docs.
 
-## Live link
+## How it works
 
-https://mich97.github.io/web-app-from-scratch-1920/
+### Actor Diagram
 
-## What does it do?
-
-TBA
-
-## Actor diagram
-
-TBA
-
-## Rate limit
-
-TBA
-
-## Interaction diagram
-
-TBA
-
-## Design patterns & best practices
-
-TBA
-
-## Feature wishlisht & backlog
-
-TBA
