@@ -2,7 +2,7 @@
 
 const PUBLIC_KEY = "?apikey=dbab711d9dd31157460665c92e6ff4e3"
 const PRIVATE_KEY = "?apikey=b035ba44c02df1cad1216a27750d4dceb7be6255"
-const url = "http://gateway.marvel.com"
+const url = "https://gateway.marvel.com"
 
 const renderHTML = (comics) => {
 
