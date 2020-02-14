@@ -5,11 +5,10 @@ Overview of Marvel Comics. The web-app displays the title of each comic, includi
 ## How it works
 
 ### Actor Diagram (WIP)
-
-![alt text](https://lh3.googleusercontent.com/kTXYardNEwLzaSz2_hwxxvvOvCxye4v6x6lXqkNUKrjNYRC2_bv5ChFW0eCY3meNVTfYeMnc1edFtXwpA9LX=w1920-h942)
+![Image of Actor Diagram](./course/actor_diagram.png)
 
 ### Interaction Diagram (WIP)
-![alt text](https://lh5.googleusercontent.com/z3hqq_HTJq8pRH_2V3Syz0pg8Fpzjy7PV6hloSrjjVCw1aaacTVManwwvaXEbzpGXg2WdHRhb8gLv4FSMK0A=w1920-h942-rw)
+![Image of Actor Diagram](./course/interaction_diagram.png)
 
 ## Wishlist
 - [ ] Be able to flip card
