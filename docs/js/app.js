@@ -69,7 +69,6 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
                 console.log(comic.id)
             });
 
-
         })
         renderHTML(comicContainer)
     })
