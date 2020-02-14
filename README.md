@@ -18,4 +18,4 @@ Overview of Marvel Comics. The web-app displays the title of each comic, includi
 - [ ] Integrate transparency micro library for easier templating
 
 ## API
-This web-app was made by making use of the Marvel API. The Marvel Comics API allows developers everywhere to access information about Marvel's vast library of comics—from what's coming up, to 70 years ago. 3000 calls can be made daily. Documentation can be found [here](https://developer.marvel.com/docs).
+This web-app was made by making use of the Marvel API. The Marvel Comics API allows developers everywhere to access information about Marvel's vast library of comics—from what's coming up, to 70 years ago, 3000 calls can be made daily. Documentation can be found [here](https://developer.marvel.com/docs).
