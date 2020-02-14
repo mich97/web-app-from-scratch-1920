@@ -2,7 +2,7 @@
 
 const PUBLIC_KEY = "?apikey=dbab711d9dd31157460665c92e6ff4e3"
 const PRIVATE_KEY = "?apikey=b035ba44c02df1cad1216a27750d4dceb7be6255"
-const url = "https://gateway.marvel.com"
+const url = "http://gateway.marvel.com"
 
 const renderHTML = (comics) => {
 
@@ -56,7 +56,7 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
             comicImage.setAttribute('class', 'comic-thumbnail')
             comicImage.setAttribute('src', comicImagePath)
 
-            const comicTitle = document.createElement('span')
+            const comicTitle = document.createElement('p')
             comicTitle.setAttribute('class', 'comic-title')
             comicTitle.innerText = comic.title
 
@@ -64,10 +64,6 @@ fetch(url + '/v1/public/comics' + PUBLIC_KEY)
             comicAnchor.appendChild(comicTitle)
             comicCard.appendChild(comicAnchor)
             comicContainer.appendChild(comicCard)
-
-            /*comicCard.appendChild(comicImage)
-            comicCard.appendChild(comicTitle)
-            comicContainer.appendChild(comicCard)*/
 
             routie(`${comic.id}`, function() {
                 console.log(comic.id)
