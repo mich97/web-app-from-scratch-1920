@@ -1,15 +1,16 @@
-const PUBLIC_KEY = "dbab711d9dd31157460665c92e6ff4e3"
-const url = `https://gateway.marvel.com/v1/public/comics?apikey=${PUBLIC_KEY}`
+const PUBLIC_KEY = "apikey=dbab711d9dd31157460665c92e6ff4e3"
+const urlBase = `https://gateway.marvel.com`
+const urlCategoryComics = `/v1/public/comics`
+const filter = '?orderBy=modified'
 
 const init = () => {
     getOverviewData();
 }
 
 const getOverviewData = async () => {
-    await fetch(url)
+    await fetch(`${urlBase}${urlCategoryComics}${filter}&${PUBLIC_KEY}`)
         .then((response) => {
             return response.json();
-
         })
         .then((myjson) => {
             console.log(myjson.data.results);
@@ -20,7 +21,9 @@ const getOverviewData = async () => {
 
 const renderOverview = (data) => {
     const comicContainer = document.createElement('div');
-    comicContainer.setAttribute('class', 'comic-layout');
+    const main = document.getElementById("main").appendChild(comicContainer)
+
+    comicContainer.setAttribute('id', 'comic-overview');
 
     data.forEach(comic => {
 
@@ -46,16 +49,45 @@ const renderOverview = (data) => {
 
     })
 
-    return document.getElementById("main").appendChild(data);
+    return main;
 }
 
-const searchComic = () => {
+const getDetailData = async (id) => {
+    await fetch(`${urlBase}${urlCategoryComics}/${id}?${PUBLIC_KEY}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((myjson) => {
+            const detail = myjson.data.results
+            renderDetail(detail);
+        })
+}
+
+const renderDetail = (data) => {
+    const comicOverview = document.getElementById("comic-overview");
+    const detailContainer = document.getElementById('detail-container');
+
+    data.forEach(detail => {
+
+        const detailTemplate = {
+            'detail-title': detail.title,
+            'detail-description': detail.description
+        }
+
+        Transparency.render(detailContainer, detailTemplate)
+        comicOverview.classList.add("hidden");
+        detailContainer.classList.remove("hidden");
+
+    })
+}
+
+const searchComic = () => {s
     /* To do */
 }
 
 routie({
-    "comic:id": id => {
-        console.log("detailpage");
+    ':id': (id) => {
+        getDetailData(id);
     }
 })
 

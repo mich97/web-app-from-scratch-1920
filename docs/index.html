@@ -16,13 +16,20 @@
 
 <section id="main" class="container">
     <input id="searchInput" onkeyup="searchComic()" class="search-field" type="text" placeholder="Search for comic">
+
+    <div id="detail-container" class="hidden">
+        <h3 id="detail-title"></h3>
+        <p id="detail-description"></p>
+    </div>
+
 </section>
 
 <footer class="container">
     <p>Data provided by Marvel. © 2014-2020 Marvels</p>
 </footer>
 
-<script src="js/routie.js"></script>
+<script src="js/vendor/routie.js"></script>
+<script src="js/vendor/transparency.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
