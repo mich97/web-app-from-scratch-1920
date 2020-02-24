@@ -69,6 +69,8 @@ const renderDetail = (data) => {
 
     data.forEach(detail => {
 
+        console.log(`${detail.thumbnail.path}.${detail.thumbnail.extension}`)
+
         const detailTemplate = {
             'detail-title': detail.title,
             'detail-description': detail.description
