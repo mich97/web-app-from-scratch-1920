@@ -83,7 +83,7 @@ const renderDetail = (data) => {
     })
 }
 
-const searchComic = () => {s
+const searchComic = () => {
     /* To do */
 }
 
