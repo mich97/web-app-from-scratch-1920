@@ -1,96 +1,114 @@
-const PUBLIC_KEY = "apikey=dbab711d9dd31157460665c92e6ff4e3"
+const PUBLIC_KEY = 'apikey=dbab711d9dd31157460665c92e6ff4e3'
 const urlBase = `https://gateway.marvel.com`
 const urlCategoryComics = `/v1/public/comics`
-const filter = '?orderBy=modified'
-
-const init = () => {
-    getOverviewData();
-}
+const filter = '?orderBy=modified&limit=100'
 
 const getOverviewData = async () => {
     await fetch(`${urlBase}${urlCategoryComics}${filter}&${PUBLIC_KEY}`)
         .then((response) => {
-            return response.json();
+            return response.json()
         })
         .then((myjson) => {
-            console.log(myjson.data.results);
-            const comics = myjson.data.results;
-            renderOverview(comics);
+            console.log(myjson.data.results)
+            const comics = myjson.data.results
+            const filteredComics = filterComics(comics)
+
+            renderOverview(filteredComics)
         })
 }
 
 const renderOverview = (data) => {
-    const comicContainer = document.createElement('div');
+    const comicContainer = document.createElement('div')
     const main = document.getElementById("main").appendChild(comicContainer)
 
-    comicContainer.setAttribute('id', 'comic-overview');
+    comicContainer.setAttribute('id', 'comic-overview')
 
     data.forEach(comic => {
 
-        const comicCard = document.createElement('div');
-        comicCard.setAttribute('class', 'comic-card');
+        const comicCard = document.createElement('a')
+        comicCard.setAttribute('href', `#${comic.id}`)
+        comicCard.setAttribute('class', 'comic-card')
 
-        const comicAnchor = document.createElement('a');
-        comicAnchor.setAttribute('href', `#${comic.id}`);
+        const comicImage = document.createElement('img')
+        const comicImagePath = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
+        comicImage.setAttribute('class', 'comic-thumbnail')
+        comicImage.setAttribute('src', comicImagePath)
 
-        const comicImage = document.createElement('img');
-        const comicImagePath = `${comic.thumbnail.path}.${comic.thumbnail.extension}`;
-        comicImage.setAttribute('class', 'comic-thumbnail');
-        comicImage.setAttribute('src', comicImagePath);
+        const comicTitle = document.createElement('h4')
+        comicTitle.setAttribute('class', 'comic-title')
+        comicTitle.innerText = comic.title
 
-        const comicTitle = document.createElement('p');
-        comicTitle.setAttribute('class', 'comic-title');
-        comicTitle.innerText = comic.title;
-
-        comicAnchor.appendChild(comicImage);
-        comicAnchor.appendChild(comicTitle);
-        comicCard.appendChild(comicAnchor);
-        comicContainer.appendChild(comicCard);
+        comicCard.appendChild(comicImage)
+        comicCard.appendChild(comicTitle)
+        comicContainer.appendChild(comicCard)
 
     })
 
-    return main;
+    return main
 }
 
 const getDetailData = async (id) => {
     await fetch(`${urlBase}${urlCategoryComics}/${id}?${PUBLIC_KEY}`)
         .then((response) => {
-            return response.json();
+            return response.json()
         })
         .then((myjson) => {
             const detail = myjson.data.results
-            renderDetail(detail);
+            renderDetail(detail)
         })
 }
 
 const renderDetail = (data) => {
-    const comicOverview = document.getElementById("comic-overview");
-    const detailContainer = document.getElementById('detail-container');
+    let detail, directives
+    const comic = data[0]
+    const comicOverview = document.getElementById('comic-overview')
+    const detailContainer = document.getElementById('detail-container')
 
-    data.forEach(detail => {
+    detail = {
+        path: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
+        title: comic.title,
+        description: comic.description
+    };
 
-        console.log(`${detail.thumbnail.path}.${detail.thumbnail.extension}`)
-
-        const detailTemplate = {
-            'detail-title': detail.title,
-            'detail-description': detail.description
+    directives = {
+        'detail-thumbnail': {
+            src: function(params) {
+                return this.path;
+            }
+        },
+        'detail-title': {
+            text: function(params) {
+                return this.title
+            }
+        },
+        'detail-description': {
+            text: function(params) {
+                return this.description
+            }
         }
 
-        Transparency.render(detailContainer, detailTemplate)
-        comicOverview.classList.add("hidden");
-        detailContainer.classList.remove("hidden");
+    };
 
-    })
+    comicOverview.classList.add('hidden')
+    detailContainer.classList.remove('hidden')
+    Transparency.render(document.getElementById('detail-container'), detail, directives)
+
 }
 
-const searchComic = () => {
-    /* To do */
+function filterComics(data) {
+
+    return data.filter(comic =>
+        comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
+        comic.description !== null)
+
 }
 
 routie({
+    '': () => {
+        getOverviewData()
+    },
+
     ':id': (id) => {
-        getDetailData(id);
+        getDetailData(id)
     }
 })
-
-init();

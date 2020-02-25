@@ -10,16 +10,21 @@
 </head>
 <body>
 
-<header class="container">
-    <img class="logo" src="img/marvel-logo.png" alt="">
+<header class="top-bar">
+    <img class="marvel-logo" src="img/marvel-logo.png" alt="">
 </header>
 
 <section id="main" class="container">
-    <input id="searchInput" onkeyup="searchComic()" class="search-field" type="text" placeholder="Search for comic">
 
     <div id="detail-container" class="hidden">
-        <h3 id="detail-title"></h3>
+        <img id="detail-thumbnail">
+        <h2 id="detail-title"></h2>
         <p id="detail-description"></p>
+        <div class="creator-container">
+            <h4 class="creator-role"></h4>
+            <p class="creator-name"></p>
+        </div>
+        <a href="">Go back</a>
     </div>
 
 </section>
