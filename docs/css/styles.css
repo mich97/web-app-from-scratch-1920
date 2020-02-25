@@ -46,7 +46,25 @@ h4, h2, a {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
-    padding-top: 1em;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+    #comic-overview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #comic-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #comic-overview {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .comic-card {

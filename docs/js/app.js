@@ -63,7 +63,6 @@ const renderDetail = (data) => {
     const comic = data[0]
     const comicOverview = document.getElementById('comic-overview')
     const detailContainer = document.getElementById('detail-container')
-    const creators = comic.creators.items
 
     detail = {
         path: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
