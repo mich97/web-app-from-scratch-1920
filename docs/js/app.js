@@ -34,7 +34,7 @@ const renderOverview = (data) => {
         comicImage.setAttribute('class', 'comic-thumbnail')
         comicImage.setAttribute('src', comicImagePath)
 
-        const comicTitle = document.createElement('h4')
+        const comicTitle = document.createElement('h5')
         comicTitle.setAttribute('class', 'comic-title')
         comicTitle.innerText = comic.title
 
@@ -63,30 +63,20 @@ const renderDetail = (data) => {
     const comic = data[0]
     const comicOverview = document.getElementById('comic-overview')
     const detailContainer = document.getElementById('detail-container')
+    const creators = comic.creators.items
 
     detail = {
         path: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
-        title: comic.title,
-        description: comic.description
+        'detail-title': comic.title,
+        'detail-description': comic.description
     };
 
     directives = {
         'detail-thumbnail': {
-            src: function(params) {
+            src: function() {
                 return this.path;
             }
-        },
-        'detail-title': {
-            text: function(params) {
-                return this.title
-            }
-        },
-        'detail-description': {
-            text: function(params) {
-                return this.description
-            }
         }
-
     };
 
     comicOverview.classList.add('hidden')
@@ -96,11 +86,9 @@ const renderDetail = (data) => {
 }
 
 function filterComics(data) {
-
     return data.filter(comic =>
         comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available" &&
         comic.description !== null)
-
 }
 
 routie({

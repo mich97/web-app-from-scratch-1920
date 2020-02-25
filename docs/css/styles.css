@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Bungee);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+
 :root {
     --dark: #424242;
     --marvel: #f0131e;
@@ -8,13 +11,17 @@
 body {
     background-color: var(--light);
     color: var(--dark);
-    font-family: monospace;
+    font-family: 'Inconsolata';
     margin: 0;
 }
 
 a {
     color: var(--dark);
     text-decoration: none;
+}
+
+h4, h2, a {
+    font-family: 'Bungee';
 }
 
 .container {
@@ -26,6 +33,7 @@ a {
     width: 100%;
     background-color: var(--dark);
     text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .marvel-logo {
@@ -42,17 +50,21 @@ a {
 }
 
 .comic-card {
-    text-align: center;
+    /*text-align: center;*/
 
 }
 
-.comic-card:hover {
-    /*border: 1px solid var(--dark);*/
+.comic-title {
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0;
+    padding-top: 1em;
+    font-weight: 300;
 }
 
 .comic-thumbnail {
     width: 100%;
-    height: 25em;
+    height: auto;
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     transition: transform 0.4s;
@@ -62,7 +74,7 @@ a {
     transform: translateY(-30px);
 }
 
-.comic-card:hover h4 {
+.comic-card:hover h5 {
     color: var(--marvel);
 }
 
@@ -76,9 +88,39 @@ a {
 
 #detail-container {
     padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    max-width: 800px;
+    margin: auto;
 }
 
 #detail-thumbnail {
-    height: 300px;
-    width: auto;
+    width: 100%;
+    height: auto;
+    grid-column: 1 / 2;
+    margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.detail-text-container {
+    grid-column: 2 / 3;
+}
+
+#detail-title {
+    margin: 0;
+    line-height: 150%;
+}
+
+#detail-description {
+    margin: 0;
+}
+
+.back {
+    font-size: 20px;
+}
+
+.back:hover {
+    color: var(--marvel);
+    transition: .4s;
 }
