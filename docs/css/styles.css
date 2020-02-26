@@ -89,7 +89,7 @@ h4, h2, a {
 }
 
 .comic-card:hover img {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
 }
 
 .comic-card:hover h5 {
@@ -108,21 +108,39 @@ h4, h2, a {
     padding: 1em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto);
     grid-gap: 20px;
-    max-width: 800px;
-    margin: auto;
 }
 
 #detail-thumbnail {
-    width: 100%;
+    max-width: 300px;
     height: auto;
     grid-column: 1 / 2;
     margin-top: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+    margin-left: auto;
 }
 
 .detail-text-container {
     grid-column: 2 / 3;
+    max-width: 20em;
+}
+
+@media only screen and (max-width: 500px) {
+    #detail-container {
+        display: block;
+    }
+    #detail-thumbnail {
+        max-width: 100%;
+        display: block;
+        height: auto;
+    }
+    .detail-text-container {
+        max-width: 100%;
+        display: block;
+        margin-top: 1em;
+    }
 }
 
 #detail-title {
