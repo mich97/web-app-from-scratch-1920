@@ -53,3 +53,8 @@ const renderDetail = (data) => {
     Transparency.render(document.getElementById('detail-container'), detail, directives)
 
 }
+
+export {
+    renderOverview,
+    renderDetail
+}

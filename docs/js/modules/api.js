@@ -30,3 +30,8 @@ const getDetailData = async (id) => {
             renderDetail(detail)
         })
 }
+
+export {
+    getOverviewData,
+    getDetailData
+}
