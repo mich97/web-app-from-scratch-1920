@@ -46,7 +46,7 @@ const renderDetail = (data) => {
     directives = {
         'detail-thumbnail': {
             src: function() {
-                return this.path;
+                return this.path
             }
         }
     };

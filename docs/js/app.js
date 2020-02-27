@@ -1,11 +1,3 @@
-import { getOverviewData, getDetailData } from './modules/api.js'
+import { routeHandler } from './modules/router.js'
 
-routie({
-    '': () => {
-        getOverviewData()
-    },
-
-    ':id': (id) => {
-        getDetailData(id)
-    }
-})
+routeHandler()
