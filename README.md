@@ -1,4 +1,4 @@
-# Web-app from scratch 19-20 | Marvel (Comics) API
+# WAFS1920 | Marvel (Comics) API
 ![Image of preview](./course/preview.png)
 
 Overview of Marvel Comics. The web-app displays the title of each comic, including a thumbnail. Users can search for comics and click on each comic to show more data. Data is retrieved by using the Marvel API.
