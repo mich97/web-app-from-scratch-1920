@@ -1,6 +1,7 @@
 const renderOverview = (data) => {
     const comicContainer = document.createElement('div')
     const main = document.getElementById("main").appendChild(comicContainer)
+    const loadState = document.getElementById('load-overview')
 
     comicContainer.setAttribute('id', 'comic-overview')
 
@@ -23,8 +24,10 @@ const renderOverview = (data) => {
         comicCard.appendChild(comicTitle)
         comicContainer.appendChild(comicCard)
 
+
     })
 
+    loadState.classList.add('hidden')
     return main
 }
 

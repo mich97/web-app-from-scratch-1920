@@ -49,8 +49,28 @@ h4, h2, a {
     padding: 1em;
 }
 
+#load-overview {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.load-card {
+    width: 100%;
+    padding-top: 6em;
+    padding-bottom: 6em;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
 @media only screen and (max-width: 900px) {
     #comic-overview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #load-overview {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -59,10 +79,16 @@ h4, h2, a {
     #comic-overview {
         grid-template-columns: repeat(2, 1fr);
     }
+    #load-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media only screen and (max-width: 400px) {
     #comic-overview {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #load-overview {
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -159,4 +185,29 @@ h4, h2, a {
 .back:hover {
     color: var(--marvel);
     transition: .4s;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
