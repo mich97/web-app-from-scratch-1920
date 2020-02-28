@@ -37,3 +37,9 @@ This webapp fetches the following data
 - [x] Use routie for routing
 - [x] Loading states
 - [ ] Display creators of comic on detailpage
+
+## Routie
+Routie is a javascript hash routing library. It is designed for scenarios when push state is not an option (IE8 support, static/Github pages, Phonegap, simple sites, etc). It is very tiny (800 bytes gzipped). Routie is used for the home and detailpage routing. Documentation can be found [here](http://projects.jga.me/routie/).
+
+## Transparency
+Transparency is a client-side template engine which binds data to DOM. Transparency is current only used to build the detailpage. Documentation can be found [here](https://github.com/leonidas/transparency).
