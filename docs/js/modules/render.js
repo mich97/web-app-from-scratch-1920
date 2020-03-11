@@ -15,6 +15,7 @@ const renderOverview = (data) => {
         const comicImagePath = `${comic.thumbnail.path}.${comic.thumbnail.extension}`
         comicImage.setAttribute('class', 'comic-thumbnail')
         comicImage.setAttribute('src', comicImagePath)
+        comicImage.setAttribute('alt', 'Comic Thumbnail')
 
         const comicTitle = document.createElement('h5')
         comicTitle.setAttribute('class', 'comic-title')
